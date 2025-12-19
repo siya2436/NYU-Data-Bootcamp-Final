@@ -1,4 +1,4 @@
-# NYU-Data_Bootcamp-Final
+# NYU-Data-Bootcamp-Final
 ## Diabetes Prediction Using Empirical and Machine Learning Models
 Jiamei Shi(js14017), Siya Xu(sx2436), Yihao Yu(yy5089)
 ### 1. Introduction
