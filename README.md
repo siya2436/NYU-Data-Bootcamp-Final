@@ -85,6 +85,8 @@ Potential nonlinear interactions
 
 These considerations guided the choice of models and evaluation strategies used in later stages.
 
+Because the diabetes prediction task is highly imbalanced, overall accuracy alone is not a reliable measure of model performance. A model can achieve high accuracy by consistently predicting the majority non-diabetic class while failing to identify high-risk individuals. For this reason, models are primarily compared using recall, precision, and F1-score for the diabetic class. Recall measures the ability to correctly identify diabetic individuals, which is critical for screening purposes, while precision reflects the rate of false positives. The F1-score summarizes this trade-off by balancing recall and precision. Accuracy is reported for completeness, but it is not treated as the primary criterion for model comparison.
+
 ### 5. Modeling Strategy
 All models are organized into three parts.
 
@@ -162,6 +164,9 @@ This project compared multiple machine learning and probabilistic approaches for
 The Glivenko–Cantelli classifier demonstrates that a theory-driven, non-parametric approach can achieve competitive predictive performance while maintaining transparency and stability. Rather than outperforming all alternatives on a single metric, the GC model offers a balanced trade-off between recall and precision, along with the added benefit of clear, feature-level explanations.
 
 Overall, the findings suggest that effective diabetes prediction is not solely a question of choosing the most complex model, but of selecting an approach that aligns with the intended use case, evaluation priorities, and interpretability requirements.
+
+##### Next Step
+Future work could focus on improving how models handle class imbalance, for example by using cost-sensitive methods or better threshold selection. Additional feature engineering may also help capture more meaningful health patterns. Finally, testing these models on other or more recent health datasets would be important to evaluate how well the results generalize in practice.
 
 #### Reference
 Kaggle Dataset: Diabetes Health Indicators Dataset, https://www.kaggle.com/datasets/alexteboul/diabetes-health-indicators-dataset?resource=download
