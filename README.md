@@ -93,7 +93,7 @@ All models are organized into three parts.
 Logistic Regression serves as a baseline for both binary and multi-class classification. The model is trained on standardized features and optimized using maximum likelihood. Despite its simplicity, Logistic Regression provides strong interpretability and establishes a performance benchmark.
 
 ##### K-Nearest Neighbors (KNN)
-KNN is implemented with k=5k=5k=5 using scaled features. As a distance-based method, KNN is sensitive to feature scaling and class imbalance. Results show that while KNN performs reasonably on the majority class, it struggles to identify diabetic cases.
+As a distance-based method, KNN is sensitive to feature scaling and class imbalance. Results show that while KNN performs reasonably on the majority class, it struggles to identify diabetic cases.
 
 #### 5.2 Part 2: Advanced Machine Learning Models
 ##### Random Forest
