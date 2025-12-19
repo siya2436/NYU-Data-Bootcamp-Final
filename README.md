@@ -28,7 +28,7 @@ Evaluate minority-class performance: Focus on recall, precision, and macro F1-sc
 Analyze trade-offs: Understand how model choice affects false negatives and false positives in a medical context.
 
 ### 3.Data Source
-#### 3.1 BRFSS Health Indicators Dataset(Kaggle)
+#### 3.1 Diabetes Health Indicators Dataset(Kaggle)
 The dataset used in this project is derived from Kaggle named 2015 Behavioral Risk Factor Surveillance System (BRFSS), a large-scale health survey conducted annually in the United States. The dataset contains over 250,000 observations, each corresponding to an individual respondent.
 The original target variable, Diabetes_012, takes three values:
 
@@ -137,5 +137,34 @@ Whether that feature increases or decreases predicted diabetes risk
 As with other models in this project, a classification threshold is applied to convert predicted probabilities into binary outcomes. Using a threshold of 0.5, the GC classifier’s performance is evaluated alongside previously implemented models.
 
 #### 6. Results and Interpretation 
+Model performance is evaluated using recall, precision, F1-score, and accuracy, with particular emphasis on minority-class (diabetes) detection due to the imbalanced nature of the dataset.
+
+The MLP model with a lowered classification threshold of 0.35 achieves a recall of 0.46 and a precision of 0.47, resulting in an F1-score of 0.46 and an accuracy of 0.83. This indicates a relatively balanced performance, with good overall accuracy but only moderate ability to identify diabetic cases.
+
+The class-weighted Random Forest strongly prioritizes sensitivity to diabetes. It achieves the highest recall among all models at 0.76, meaning it successfully identifies most diabetic individuals. However, this comes at a significant cost to precision, which drops to 0.34, indicating a high rate of false positives. As a result, overall accuracy is reduced to 0.73, despite a slightly higher F1-score of 0.47.
+
+The Glivenko–Cantelli (GC) classifier offers a middle ground between these two approaches. It achieves a recall of 0.52 and a precision of 0.41, yielding an F1-score of 0.46 and an accuracy of 0.81. Compared to the Random Forest, the GC model sacrifices some recall but substantially improves precision. Compared to the MLP, it improves recall while maintaining competitive accuracy, without requiring threshold tuning.
+
+Overall, no single model dominates across all metrics. Instead, each model reflects a different trade-off between sensitivity, specificity, and overall predictive stability.
+
+#### 7. Key Insights and Interpretation
+First, class imbalance fundamentally shapes model behavior. Models that optimize for recall, such as the Random Forest, can substantially increase detection of diabetic cases but inevitably introduce many false positives. This highlights the limitation of relying on a single metric when evaluating medical classifiers.
+
+Second, model complexity does not guarantee superior performance. Despite its simplicity, the MLP performs comparably to more advanced methods when threshold tuning is applied. Similarly, the GC classifier—despite avoiding parametric assumptions and iterative optimization—achieves performance on par with neural and ensemble models.
+
+Third, interpretability and performance need not be mutually exclusive. While the Random Forest and MLP provide limited insight into feature-level contributions, the GC classifier maintains a transparent structure that allows each prediction to be decomposed into individual feature effects, while still achieving competitive recall, precision, and accuracy.
+
+Finally, the results emphasize that the definition of “better” depends on the application context. In aggressive screening settings, maximizing recall may be preferred. In settings where false positives carry meaningful costs, a more balanced approach may be more appropriate.
+
+#### 8. Conclusion
+This project compared multiple machine learning and probabilistic approaches for predicting diabetes using large-scale health survey data. The results show that while ensemble methods such as Random Forest can achieve high sensitivity, they do so at the expense of precision and overall accuracy. Neural network models offer flexibility and strong accuracy but require threshold tuning and provide limited interpretability.
+
+The Glivenko–Cantelli classifier demonstrates that a theory-driven, non-parametric approach can achieve competitive predictive performance while maintaining transparency and stability. Rather than outperforming all alternatives on a single metric, the GC model offers a balanced trade-off between recall and precision, along with the added benefit of clear, feature-level explanations.
+
+Overall, the findings suggest that effective diabetes prediction is not solely a question of choosing the most complex model, but of selecting an approach that aligns with the intended use case, evaluation priorities, and interpretability requirements.
+
+#### Reference
+Kaggle Dataset: Diabetes Health Indicators Dataset, https://www.kaggle.com/datasets/alexteboul/diabetes-health-indicators-dataset?resource=download
+
 
 
