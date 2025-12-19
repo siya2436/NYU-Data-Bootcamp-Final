@@ -1,6 +1,6 @@
 # NYU-Data-Bootcamp-Final
 ## Diabetes Prediction Using Empirical and Machine Learning Models
-Jiamei Shi(js14017), Siya Xu(sx2436), Yihao Yu(yy5089)
+Jiamei Shi(js14017), Siya Xu(sx2436), Kelly Yu(yy5089)
 ### 1. Introduction
 With the increasing availability of large-scale health survey data, machine learning has become an important tool for early disease detection and risk prediction. Chronic diseases such as diabetes pose long-term health risks and significant economic costs, making early identification and prevention particularly valuable. Predictive modeling based on individual health indicators offers a scalable and data-driven approach to support public health decision-making.
 
